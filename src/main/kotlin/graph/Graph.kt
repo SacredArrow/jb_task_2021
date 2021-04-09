@@ -1,7 +1,6 @@
 package graph
 
 import ImpossibleOrderException
-import kotlin.system.exitProcess
 
 class Graph {
     private val nodes = mutableMapOf<Char, Node>()

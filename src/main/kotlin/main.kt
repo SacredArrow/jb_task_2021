@@ -1,5 +1,4 @@
 import graph.Graph
-import kotlin.system.exitProcess
 
 class ImpossibleOrderException(): Exception()
 
