@@ -23,6 +23,14 @@ class Graph {
         nodeA.addAdjacent(nodeB)
     }
 
+    fun addMissingLetters() {
+        var c = 'a'
+        while (c <= 'z') {
+            getNode(c)
+            c++
+        }
+    }
+
     fun topologicalSort() : List<Char> {
         for ((_, node) in nodes) { // Mark all nodes as not visited (needed if sorting is run few times
             node.color = NodeColor.WHITE
