@@ -48,9 +48,9 @@ class Graph {
     private fun dfs(node: Node) {
         node.color = NodeColor.GRAY
         for (node2 in node.getAdjacent()) {
-            if (node2.color == NodeColor.WHITE) {
+            if (node2.color == NodeColor.WHITE) { // Node is not visited
                 dfs(node2)
-            } else if (node2.color == NodeColor.GRAY) {
+            } else if (node2.color == NodeColor.GRAY) { // There are cycles in the graph
                 println("Impossible")
                 throw ImpossibleOrderException()
             }
