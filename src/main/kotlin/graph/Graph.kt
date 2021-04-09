@@ -1,5 +1,6 @@
 package graph
 
+import ImpossibleOrderException
 import kotlin.system.exitProcess
 
 class Graph {
@@ -52,7 +53,7 @@ class Graph {
                 dfs(node2)
             } else if (node2.color == NodeColor.GRAY) {
                 println("Impossible")
-                exitProcess(0)
+                throw ImpossibleOrderException()
             }
         }
         node.color = NodeColor.BLACK

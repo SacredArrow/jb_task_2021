@@ -1,15 +1,21 @@
 import graph.Graph
 import kotlin.system.exitProcess
 
+class ImpossibleOrderException(): Exception()
+
 fun main(args: Array<String>) {
     val n = readLine()!!.toInt()
     val names = mutableListOf<String>()
     repeat(n) {
         names.add(readLine()!!)
     }
-
-    val graph = buildGraph(names)
-    val order = graph.topologicalSort()
+    lateinit var order : List<Char>
+    try {
+        val graph = buildGraph(names)
+        order = graph.topologicalSort()
+    } catch (e : ImpossibleOrderException) {
+        return
+    }
     for (letter in order) {
         print("$letter ")
     }
@@ -35,7 +41,7 @@ fun buildGraph(names: MutableList<String>) : Graph {
         } else if (previous.length > name.length) {
             // If not found, previous should have <= length. Otherwise it can't be lexicographical order
             println("Impossible")
-            exitProcess(0)
+            throw ImpossibleOrderException()
         }
         previous = name
     }
