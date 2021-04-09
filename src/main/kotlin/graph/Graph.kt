@@ -32,7 +32,7 @@ class Graph {
     }
 
     fun topologicalSort() : List<Char> {
-        for ((_, node) in nodes) { // Mark all nodes as not visited (needed if sorting is run few times
+        for ((_, node) in nodes) { // Mark all nodes as not visited (needed if sorting is run few times)
             node.color = NodeColor.WHITE
         }
         order.clear()
